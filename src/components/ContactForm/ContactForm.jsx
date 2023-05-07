@@ -1,4 +1,10 @@
 import { Component } from 'react';
+import * as React from 'react';
+
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
+import css from './ContactForm.module.css';
 
 class ContactForm extends Component {
   state = { name: '', number: '' };
@@ -15,10 +21,16 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form autoComplete="off" onSubmit={this.handleSubmit}>
+      <form
+        autoComplete="off"
+        onSubmit={this.handleSubmit}
+        className={css.list}
+      >
         <label>
-          Name
-          <input
+          <TextField
+            id="outlined-basic"
+            label="Name"
+            variant="outlined"
             name="name"
             type="text"
             value={this.state.name}
@@ -29,8 +41,10 @@ class ContactForm extends Component {
           />
         </label>
         <label>
-          Number
-          <input
+          <TextField
+            id="outlined-basic"
+            label="Number"
+            variant="outlined"
             type="tel"
             name="number"
             value={this.state.number}
@@ -40,7 +54,9 @@ class ContactForm extends Component {
             required
           />
         </label>
-        <button type="submit">Add contact</button>
+        <Button variant="contained" type="submit">
+          Add contact
+        </Button>
       </form>
     );
   }
