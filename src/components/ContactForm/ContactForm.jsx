@@ -5,9 +5,10 @@ class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.addContact(this.state);
+    this.setState(() => ({ name: '', number: '' }));
   };
+
   handleChange = name => e => {
     this.setState(() => ({ [name]: e.target.value }));
   };
@@ -28,7 +29,7 @@ class ContactForm extends Component {
           />
         </label>
         <label>
-          Password
+          Number
           <input
             type="tel"
             name="number"
